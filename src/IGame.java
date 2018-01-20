@@ -4,5 +4,5 @@ public abstract class IGame {
         System.out.println(message);
     }
 
-    public abstract void play();
+    public abstract void init();
 }

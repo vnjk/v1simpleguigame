@@ -16,7 +16,6 @@ public class HiLoTest {
     }
     @Test
     public void correctAnswer(){
-        game.play();
         //input stream?
 
 
