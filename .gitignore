@@ -1,0 +1,3 @@
+#Ignore generated class files & .idea files
+.idea/
+out/
