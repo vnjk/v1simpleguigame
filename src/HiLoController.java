@@ -1,40 +1,62 @@
+import java.io.BufferedReader;
 import java.util.Scanner;
 
 public class HiLoController {
 
-    HiLo game = null;
+    private HiLo game = null;
+    private GameStatusType gameStatus = null;
+    private GuessType guessStatus = null;
+    private int latestGuess = 0;
+
+
+
 
     public HiLoController(HiLo game){
         this.game = game;
+        gameStatus = GameStatusType.STARTED;
     }
 
-    public void playGame(){
+    public void init(){
         game.init();
+    }
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Game start " + game.getMaxVal());
-
-        int guess = sc.nextInt();
-        GuessType type = game.verifyGuess(guess);
-        while( type != GuessType.CORRECT){
-            switch(type){
-                case HIGH:
-                    System.out.println("Too high");
-                    break;
-                case LOW:
-                    System.out.println("Too low");
-                    break;
-                default:
-                    break;
-            }
-            guess = sc.nextInt();
-            type = game.verifyGuess(guess);
+    public void guess(int value) {
+        latestGuess = value;
+        guessStatus = game.verifyGuess(value);
+        if (guessStatus.equals(GuessType.CORRECT)) {
+            gameStatus = GameStatusType.FINISHED;
+        } else {
+            gameStatus = GameStatusType.PLAYING;
         }
-        System.out.println("Correct");
+    }
 
+    public GameStatusType getGameStatus() {
+        return gameStatus;
+    }
+
+    public GuessType getGuessStatus() {
+        return guessStatus;
+    }
+
+    public int getLatestGuess() {
+        return latestGuess;
+    }
+
+    public int getMaxVal(){
+        int maxVal = game.getMaxVal();
+        return maxVal;
+    }
+
+    public int getTries(){
+        return game.getTries();
     }
 
     public boolean playAgain(String response) {
         return response.equalsIgnoreCase("y");
     }
+
+
+
+
+
 }

@@ -32,4 +32,6 @@ public class HiLo extends IGame{
         return maxVal;
     }
 
+    public int getTries(){ return tries; }
+
 }
