@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class HiLo extends IGame{
 
     private int expectedVal;

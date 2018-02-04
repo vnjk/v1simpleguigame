@@ -1,6 +1,6 @@
 public class MockNumberGenerator implements INumberGenerator {
 
-    int mockVal = 0;
+    private int mockVal;
 
     public MockNumberGenerator(int mockVal){
         this.mockVal = mockVal;
@@ -10,7 +10,4 @@ public class MockNumberGenerator implements INumberGenerator {
     public int generateNumber(int unusedVal) {
         return mockVal;
     }
-
-
-
 }
