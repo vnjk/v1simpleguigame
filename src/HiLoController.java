@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class HiLoController {
 
-    private HiLo game = null;
+    private IHiLoGame game = null;
     private GameStatusType gameStatus = null;
     private GuessType guessStatus = null;
     private int latestGuess = 0;
@@ -11,7 +11,7 @@ public class HiLoController {
 
 
 
-    public HiLoController(HiLo game){
+    public HiLoController(IHiLoGame game){
         this.game = game;
         gameStatus = GameStatusType.STARTED;
     }

@@ -1,4 +1,4 @@
-public class HiLo extends IGame{
+public class HiLo implements IHiLoGame {
 
     private int expectedVal;
     private int tries;
@@ -15,6 +15,7 @@ public class HiLo extends IGame{
         tries = 0;
     }
 
+    @Override
     public GuessType verifyGuess(int guess){
         tries++;
         if (guess > expectedVal) {
@@ -26,10 +27,12 @@ public class HiLo extends IGame{
         }
     }
 
+    @Override
     public int getMaxVal(){
         return maxVal;
     }
 
+    @Override
     public int getTries(){ return tries; }
 
 }
